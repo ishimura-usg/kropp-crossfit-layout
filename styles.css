@@ -248,7 +248,6 @@ svg * {
   transition-duration: var(--transition-duration);
 }
 
-
 a {
   color: var(--color-light);
 }
@@ -264,8 +263,6 @@ p {
 p:not([class]):not(:last-child) {
   margin-bottom: 24px;
 }
-
-
 
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
@@ -294,12 +291,12 @@ h5,
 h6 {
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--color-light);
 }
 
 .title-medium {
   font-size: clamp(20px, 2.08vw, 40px);
   line-height: 1.3;
-  color: var(--color-light);
 }
 
 .backdrop-title {
@@ -322,13 +319,12 @@ h6 {
   position: absolute;
   z-index: -1;
   top: -0.45em;
-  left: -0.60em;
+  left: -0.6em;
   font-family: var(--font-family-accent);
   font-size: 2.8em;
   color: transparent;
   -webkit-text-stroke: 0.5px var(--color-light-gray);
 }
-
 
 .button {
   display: inline-flex;
@@ -361,7 +357,7 @@ h6 {
 }
 
 .button.transparent::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   height: 100%;
@@ -467,7 +463,7 @@ h6 {
 
 /* make arrow */
 .banner-info::before {
-  content: '';
+  content: "";
   /* adaptive arrow resizing 194px/1920 * 100 = 10.1 vw */
   width: clamp(60px, 10.1vw, 194px);
   aspect-ratio: 1;
@@ -502,14 +498,13 @@ h6 {
 
 /* increase click area */
 .banner-pagination-button::after {
-  content: '';
+  content: "";
   width: 10px;
   aspect-ratio: 1;
   border: var(--border);
   border-radius: 50%;
   transition-duration: var(--transition-duration);
 }
-
 
 .banner-pagination-button.is-current::after {
   background-color: var(--color-light);
@@ -554,11 +549,54 @@ h6 {
   margin-bottom: 37px;
 }
 
+.training-types {
+  position: relative;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-top: 70px;
+  padding-bottom: 120px;
+  background-color: var(--color-dark);
+}
 
-@media (max-width:1919px) {
+.training-types-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 60px;
+}
+
+.training-types-item {
+  --trainingTypesItemBgIconSize: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 32px;
+  padding-top: var(--trainingTypesItemBgIconSize);
+  background: url(./icons/transparent-arrow-bottom-left.svg) 100% 0/var(--trainingTypesItemBgIconSize) no-repeat;
+}
+
+.training-types-image {
+  width: 150px;
+  height: 140px;
+}
+
+.training-types-item-title {
+  font-size: 16px;
+}
+
+
+@media (max-width: 1919px) {
   .motivation-card-image {
     margin-block: -20px;
   }
+}
+
+@media (max-width: 1280px) {
+
+  .training-types-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
 }
 
 
@@ -643,5 +681,19 @@ h6 {
 
   .motivation-card-description:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  .training-types-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .training-types-item {
+    --trainingTypesItemBgIconSize: 50px;
+    row-gap: 10px;
+  }
+
+  .training-types-image {
+    max-width: 120px;
   }
 }
